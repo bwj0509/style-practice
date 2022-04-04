@@ -13,17 +13,24 @@ $pink: #f06595;
     &:active {
         background: darken($color, 10%);
     }
+
+    &.outline {
+        color: $color;
+        background: none;
+        border: 1px solid $color;
+
+        &:hover {
+            background: $color;
+            color: white
+        }
+    }
+
 }
 
 
 
 
-
-
-
-
 .Button {
-    display: inline-flex;
     color: white;
     font-weight: bold;
     outline: none;
@@ -79,4 +86,16 @@ $pink: #f06595;
         // & + &는 .Button + .Button을 의미함
         margin-left: 1rem;
     }
+
+    &.fullWidth {
+        width: 100%;
+        justify-content: center;
+
+        &+& {
+            margin-left: 0;
+            margin-top: 1rem;
+        }
+    }
+
+
 }
