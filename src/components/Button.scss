@@ -1,0 +1,82 @@
+$blue: #228be6; // 주석 선언
+$gray: #495057;
+$pink: #f06595;
+
+@mixin button-color($color) {
+    // mixin 을사용해서 반복되는 코드 길이를 줄일 수 있다.
+    background: $color;
+
+    &:hover {
+        background: lighten($color, 10%);
+    }
+
+    &:active {
+        background: darken($color, 10%);
+    }
+}
+
+
+
+
+
+
+
+
+.Button {
+    display: inline-flex;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+
+    height: 2.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+
+
+    &.large {
+        height: 3rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 1.25rem;
+    }
+
+    &.medium {
+        height: 2.25rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 1rem;
+    }
+
+    &.small {
+        height: 1.75rem;
+        font-size: 0.875rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+
+
+    &.blue {
+        //mixin을 사용해서 반복되는 코드 길이를 줄이기!
+        @include button-color($blue)
+    }
+
+    &.gray {
+        @include button-color($gray)
+    }
+
+    &.pink {
+        @include button-color($pink)
+    }
+
+
+
+    &+& {
+        // & + &는 .Button + .Button을 의미함
+        margin-left: 1rem;
+    }
+}
