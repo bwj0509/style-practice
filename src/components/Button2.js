@@ -5,8 +5,8 @@ import { darken, lighten } from 'polished';
 
 const colorStyles = css`
   ${(props) => {
-        const selected = props.theme.palette[props.color];
-        return css`
+    const selected = props.theme.palette[props.color];
+    return css`
       background: ${selected};
       &:hover {
         background: ${lighten(0.1, selected)};
@@ -15,8 +15,8 @@ const colorStyles = css`
         background: ${darken(0.1, selected)};
       }
       ${props =>
-                props.outline &&
-                css`
+        props.outline &&
+        css`
           color: ${selected};
           background: none;
           border: 1px solid ${selected};
@@ -26,22 +26,22 @@ const colorStyles = css`
           }
         `}
     `;
-    }}
+  }}
 `;
 
 const sizeStyles = css`
     ${props => props.size === 'large' &&
-        css`
+    css`
         height:3rem;
         font-size:1.25rem;
     `}
     ${props => props.size === 'medium' &&
-        css`
+    css`
         height:2.25rem;
         font-size:1rem;
     `}
     ${props => props.size === 'small' &&
-        css`
+    css`
         height:1.75rem;
         font-size:0.875rem;
     `}
@@ -49,7 +49,7 @@ const sizeStyles = css`
 
 const fullWidthStyle = css`
 ${props => props.fullWidth &&
-        css`
+    css`
     width:100%;
     justify-content:center;
     &+&{
@@ -57,7 +57,7 @@ ${props => props.fullWidth &&
         margin-top:1rem;
     }
     `
-    }
+  }
 `
 
 
@@ -89,22 +89,22 @@ const StyledButton = styled.button`
 
 
 function Button2({ children, color, size, outline, fullWidth, ...rest }) {
-    return (
-        <StyledButton
-            color={color}
-            size={size}
-            outline={outline}
-            fullWidth={fullWidth}
-            {...rest}
-        >
-            {children}
-        </StyledButton>
-    );
+  return (
+    <StyledButton
+      color={color}
+      size={size}
+      outline={outline}
+      fullWidth={fullWidth}
+      {...rest}
+    >
+      {children}
+    </StyledButton>
+  );
 }
 
 Button2.defaultProps = {
-    color: 'blue',
-    size: 'medium'
+  color: 'blue',
+  size: 'medium'
 };
 
 export default Button2;
